@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+import { Header } from "../components/ui/Header";
+import { Footer } from "../components/ui/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,7 +15,7 @@ export const metadata: Metadata = {
   description: "App de tarefas com Next.js",
 };
 
-export default function RootLayout({
+export default function TodoLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -21,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${inter.className} antialiased`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

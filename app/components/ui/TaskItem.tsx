@@ -8,7 +8,7 @@ interface TaskItemProps {
   task: Task;
 }
 
-export const TaskItem = ({ task }: TaskItemProps) => {
+export function TaskItem  ({ task }: TaskItemProps) {
   const { toggleTask, deleteTask } = useTasks();
 
   return (
@@ -18,7 +18,7 @@ export const TaskItem = ({ task }: TaskItemProps) => {
           type="checkbox"
           checked={task.completed}
           onChange={() => toggleTask(task.id)}
-          className="h-5 w-5 accent-blue-600"
+          className="h-5 w-5 accent-blue-600 cursor-pointer"
         />
         <span
           className={`text-gray-800 ${
@@ -30,7 +30,7 @@ export const TaskItem = ({ task }: TaskItemProps) => {
       </div>
       <button
         onClick={() => deleteTask(task.id)}
-        className="text-red-500 hover:text-red-700"
+        className="text-red-500 hover:text-red-700 cursor-pointer"
         aria-label="Deletar tarefa"
       >
         <Trash2 className="w-5 h-5" />
